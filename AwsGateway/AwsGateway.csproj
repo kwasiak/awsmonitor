@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9CEDDB4D-C289-412D-96FB-49E508B0081B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AwsGateway</RootNamespace>
+    <AssemblyName>AwsGateway</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK, Version=2.3.43.0, Culture=neutral, PublicKeyToken=9f476d3089b52be3, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.2.3.43.0\lib\net35\AWSSDK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AwsTools\Ec2InstanceManager.cs" />
+    <Compile Include="DataProviders\CloudWatchConnectionProvider.cs" />
+    <Compile Include="DataProviders\CloudWatchProvider.cs" />
+    <Compile Include="DataProviders\CloudWatchResultRecord.cs" />
+    <Compile Include="DataProviders\Ec2ConnectionProvider.cs" />
+    <Compile Include="DataProviders\Ec2InstanceProvider.cs" />
+    <Compile Include="DataProviders\ElasticBeanStalkConnectionProvider.cs" />
+    <Compile Include="DataProviders\ElasticBeanStalkInstanceProvider.cs" />
+    <Compile Include="DataProviders\RdsConnectionProvider.cs" />
+    <Compile Include="DataProviders\RdsInstanceProvider.cs" />
+    <Compile Include="DataProviders\SecurityGroupsProvider.cs" />
+    <Compile Include="DataProviders\VolumeProvider.cs" />
+    <Compile Include="Data\AmiRecord.cs" />
+    <Compile Include="Data\AwsFinancialReportRecord.cs" />
+    <Compile Include="Data\Ec2Enumerator.cs" />
+    <Compile Include="Data\Ec2Record.cs" />
+    <Compile Include="Data\ElasticBeanStalkRecord.cs" />
+    <Compile Include="Data\ElasticIpRecord.cs" />
+    <Compile Include="Data\RdsRecord.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Data\SecurityGroupEntryRecord.cs" />
+    <Compile Include="Data\SecurityGroupRecord.cs" />
+    <Compile Include="Data\SnapshotRecord.cs" />
+    <Compile Include="Data\VolumeRecord.cs" />
+    <Compile Include="Settings\AwsKeyProviders.cs" />
+    <Compile Include="Tools\AwsTags.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="aws-sessionprovider-sample.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

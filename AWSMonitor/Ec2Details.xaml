@@ -1,0 +1,48 @@
+﻿<Window x:Class="AWSMonitor.Ec2Details"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        Title="Ec2Details" Height="507" Width="979">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="350*" />
+        </Grid.RowDefinitions>
+        <Label Content="{Binding Path=Name}" Grid.Row="0" />
+        <TabControl HorizontalAlignment="Stretch" Name="tabControl1" VerticalAlignment="Stretch" Grid.Row="1" >
+            <TabItem Header="Security groups" Name="tabItem1">
+                <Canvas>
+                    <ListBox Canvas.Left="6" Canvas.Top="39" 
+                             Height="314" Name="groupsList" Width="326" 
+                             ItemsSource="{Binding Path=SecurityGroups}" SelectionChanged="groupsList_SelectionChanged" />
+                    <Label Canvas.Left="6" Canvas.Top="11" Content="Groups" Height="28" />
+                    <Label Canvas.Left="405" Canvas.Top="11" Content="Incomming" Height="28" />
+                    <Label Canvas.Left="405" Canvas.Top="182" Content="Outgoing" Height="28" />
+
+                    <ListView Canvas.Left="405" Canvas.Top="39" Height="137" Name="incommingListView" Width="483">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Protocol" DisplayMemberBinding="{Binding Path=Item1}" Width="100"/>
+                                <GridViewColumn Header="From Port" DisplayMemberBinding="{Binding Path=Item2}" Width="100"/>
+                                <GridViewColumn Header="To Port" DisplayMemberBinding="{Binding Path=Item3}" Width="100"/>
+                                <GridViewColumn Header="IP Range" DisplayMemberBinding="{Binding Path=Item4}" Width="100"/>
+                            </GridView>
+                        </ListView.View>
+
+                    </ListView>
+                    <ListView Canvas.Left="405" Canvas.Top="216" Height="137" Name="outgoingListView" Width="483">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Item1}" Header="Protocol" Width="100" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Item2}" Header="From Port" Width="100" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Item3}" Header="To Port" Width="100" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Path=Item4}" Header="IP Range" Width="100" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Canvas>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
