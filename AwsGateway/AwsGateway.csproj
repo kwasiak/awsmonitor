@@ -77,7 +77,6 @@
     <Compile Include="Tools\AwsTags.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="aws-sessionprovider-sample.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
